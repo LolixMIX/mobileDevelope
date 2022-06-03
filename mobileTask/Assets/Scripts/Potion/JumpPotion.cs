@@ -14,11 +14,14 @@ public class JumpPotion : ParentPotion
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             EffectPotion();
         }
     }
+
+
+
 }
