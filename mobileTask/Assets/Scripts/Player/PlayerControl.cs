@@ -23,7 +23,7 @@ public class PlayerControl : Entity
     public bool IsGrounded = false;
 
     private int playerLayer, platformLayer;
-
+    public bool Key;
 
     void CheckGround()
     {
@@ -81,7 +81,13 @@ public class PlayerControl : Entity
 
     }
 
-
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Key"))
+        {
+            Key = true;
+        }
+    }
 
     private void Awake()
     {
@@ -95,8 +101,10 @@ public class PlayerControl : Entity
         playerLayer = LayerMask.NameToLayer("Player");
         platformLayer = LayerMask.NameToLayer("Platform");
         collider2D = GetComponent<Collider2D>();
+        Key = false;
         Debug.Log($"Слой игрока - {playerLayer}. Слой платформы - {platformLayer}");
     }
+
 
     private void FixedUpdate()
     {
