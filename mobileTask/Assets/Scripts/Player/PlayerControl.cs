@@ -24,6 +24,8 @@ public class PlayerControl : Entity
 
     private int playerLayer, platformLayer;
     public bool Key;
+    [SerializeField]
+    public Animator animator;
 
     void CheckGround()
     {
@@ -40,6 +42,7 @@ public class PlayerControl : Entity
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+        animator.SetTrigger("Jumping");
     }
     void Flip()
     {
@@ -102,7 +105,7 @@ public class PlayerControl : Entity
         platformLayer = LayerMask.NameToLayer("Platform");
         collider2D = GetComponent<Collider2D>();
         Key = false;
-        Debug.Log($"Слой игрока - {playerLayer}. Слой платформы - {platformLayer}");
+       
     }
 
 
@@ -132,17 +135,31 @@ public class PlayerControl : Entity
         {
            
             Jump();
+           
             _extraJump--;
 
         }else if(Input.GetButtonDown("Jump") && IsGrounded && _extraJump == 0)
         {
             Jump();
+
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Нажата {S}");
             StartCoroutine(JumpOff());
         }
+
+        if (IsGrounded)
+        {
+            animator.SetBool("Jumping", false);
+        }
+        else
+        {
+            animator.SetBool("Jumping", true);
+        }
+
+        animator.SetFloat("HorizontalMove", Mathf.Abs(Input.GetAxis("Horizontal")));
+        
     }
 
 }

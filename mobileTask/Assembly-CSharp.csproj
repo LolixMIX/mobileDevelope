@@ -57,20 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\LoadLVL2.cs" />
     <Compile Include="Assets\Scripts\Enemy\Monolite.cs" />
     <Compile Include="Assets\Scripts\Potion\JumpPotion.cs" />
     <Compile Include="Assets\Scripts\Player\WallSlide.cs" />
+    <Compile Include="Assets\Scripts\LokedDoor.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Potion\ParentPotion.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Entity\Health.cs" />
+    <Compile Include="Assets\Scripts\Destroy.cs" />
     <Compile Include="Assets\Scripts\CameraOnPlayer.cs" />
     <Compile Include="Assets\Scripts\Enemy\PatrolDemon.cs" />
     <Compile Include="Assets\Scripts\Potion\HealthPotion.cs" />
-    <Compile Include="Assets\Scripts\Destroy.cs" />
-    <Compile Include="Assets\Scripts\LoadLVL2.cs" />
     <Compile Include="Assets\Scripts\Enemy\LavaWorm.cs" />
-    <Compile Include="Assets\Scripts\LokedDoor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
