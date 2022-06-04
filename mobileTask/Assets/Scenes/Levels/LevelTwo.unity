@@ -933,6 +933,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &299167981 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4083955483317532580, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
+  m_PrefabInstance: {fileID: 532653198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &358279059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,11 +1693,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083955483317532569, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.11
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 4083955483317532569, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.63
+      value: -0.97
       objectReference: {fileID: 0}
     - target: {fileID: 4083955483317532569, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1739,12 +1744,20 @@ PrefabInstance:
       value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4083955483317532574, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 299167981}
+    - target: {fileID: 4083955483317532574, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
       propertyPath: Joystick
       value: 
       objectReference: {fileID: 810686422}
     - target: {fileID: 4083955483317532574, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
       propertyPath: JumpValue
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083955483317532574, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}
+      propertyPath: HealthPoints
+      value: 36.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3131ba18d3d8ba448a5e241e9411c008, type: 3}

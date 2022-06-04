@@ -28,6 +28,7 @@ public class PlayerControl : Entity
 
     private int playerLayer, platformLayer;
     public bool Key;
+    public Animator Animator;
 
     void CheckGround()
     {
@@ -54,6 +55,7 @@ public class PlayerControl : Entity
         {
 
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+
             
 
         }
@@ -125,7 +127,7 @@ public class PlayerControl : Entity
         platformLayer = LayerMask.NameToLayer("Platform");
         collider2D = GetComponent<Collider2D>();
         Key = false;
-        //transform.position = new Vector2(PlayerPrefs.GetFloat("xPos"), PlayerPrefs.GetFloat("yPos"));
+        transform.position = new Vector2(PlayerPrefs.GetFloat("xPos"), PlayerPrefs.GetFloat("yPos"));
     }
 
 
@@ -161,11 +163,28 @@ public class PlayerControl : Entity
         //{
         //    Jump();
         //}
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Нажата {S}");
             StartCoroutine(JumpOff());
         }
+
+        if (IsGrounded)
+        {
+            Animator.SetBool("Jumping", false);
+        }
+        else
+        {
+            Animator.SetBool("Jumping", true);
+        }
+
+        Animator.SetFloat("HorizontalMove", Mathf.Abs(Joystick.Horizontal));
+
+
+
+
+
     }
 
 }
