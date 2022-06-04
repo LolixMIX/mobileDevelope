@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - Destroy
     - Exit
     - FixedJoystick
+    - GoMenu
     - HealthBar
     - HealthPotion
     - JumpPotion
@@ -32,8 +33,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -224,6 +223,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5106}
     - Class: 114
       Script: {instanceID: 5310}
+    - Class: 114
+      Script: {instanceID: 26482}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -1045,10 +1046,16 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GoMenu
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Levels/LevelOne.unity
   - Assets/Scenes/Levels/LevelTwo.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: "C:/Users/\u041D\u0438\u043A\u043E\u043B\u0430\u0439/Desktop/IHopeThisIsFinalBuild.apk"
+  playerPath: C:/Users/Trolen/Desktop/FinalBuild_1.apk

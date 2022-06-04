@@ -127,7 +127,7 @@ public class PlayerControl : Entity
         platformLayer = LayerMask.NameToLayer("Platform");
         collider2D = GetComponent<Collider2D>();
         Key = false;
-        transform.position = new Vector2(PlayerPrefs.GetFloat("xPos"), PlayerPrefs.GetFloat("yPos"));
+       // transform.position = new Vector2(PlayerPrefs.GetFloat("xPos"), PlayerPrefs.GetFloat("yPos"));
     }
 
 

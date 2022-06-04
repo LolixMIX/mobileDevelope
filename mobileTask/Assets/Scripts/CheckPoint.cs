@@ -6,12 +6,12 @@ public class CheckPoint : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerPrefs.SetFloat("xPos", collision.transform.position.x);
-            PlayerPrefs.SetFloat("yPos", collision.transform.position.y);
-            PlayerPrefs.SetFloat("zPos", collision.transform.position.z);
-            Debug.Log("Чекпоинт");
-        }
+        //if (collision.CompareTag("Player"))
+        //{
+        //    PlayerPrefs.SetFloat("xPos", collision.transform.position.x);
+        //    PlayerPrefs.SetFloat("yPos", collision.transform.position.y);
+        //    PlayerPrefs.SetFloat("zPos", collision.transform.position.z);
+        //    Debug.Log("Чекпоинт");
+        //}
     }
 }
