@@ -11,7 +11,7 @@ public class Monolite : Entity
         if (collision.gameObject.CompareTag("Player"))
         {
 
-            collision.gameObject.GetComponent<PlayerControl>().GetDamage(0.04f);
+            collision.gameObject.GetComponent<PlayerControl>().GetDamage(0.1f);
         }
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)

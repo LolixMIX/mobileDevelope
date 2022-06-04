@@ -6,9 +6,15 @@ using UnityEngine.SceneManagement;
 public class Exit : MonoBehaviour
 {
     public GameObject menuPanel;
+    public GameObject reloadPanel;
+    public PlayerControl player;
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     void Update()
     {
@@ -23,6 +29,10 @@ public class Exit : MonoBehaviour
             
             Debug.Log("Exit");
             menuPanel.SetActive(true);
+        }
+        if (!player)
+        {
+            reloadPanel.SetActive(true);
         }
     }
 }

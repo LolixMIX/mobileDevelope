@@ -7,10 +7,14 @@ public class PlayerControl : Entity
 
     public float Speed;
     public float HealthPoints;
-    
+    public float MaxHealth = 10;
+
+    public Joystick Joystick;
+
     public float JumpForce;
     public int JumpValue = 1;
     private int _extraJump;
+    private float _moveInput;
 
 
     private Rigidbody2D rb;
@@ -33,13 +37,32 @@ public class PlayerControl : Entity
     }
     void Run()
     {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, rb.velocity.y);
+        _moveInput = Joystick.Horizontal;
+        rb.velocity = new Vector2(_moveInput * Speed, rb.velocity.y);
 
     }
 
-    void Jump()
+    public void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+    }
+    public void JumpOnButton()
+    {
+        _extraJump--;
+
+        if (_extraJump > 0)
+        {
+
+            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+            
+
+        }
+        else if (IsGrounded && _extraJump == 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, JumpForce);
+        }
+
+
     }
     void Flip()
     {
@@ -51,7 +74,7 @@ public class PlayerControl : Entity
     public override void GetDamage(float damage)
     {
         HealthPoints -= damage;
-        
+
         Debug.Log(((int)HealthPoints));
         if (HealthPoints <= 0)
         {
@@ -71,12 +94,12 @@ public class PlayerControl : Entity
         if (colliders.Length > 1 && colliders[1].CompareTag("Platform"))
         {
             Debug.Log(colliders[1].name);
-            Physics2D.IgnoreCollision(collider2D,colliders[1]);
+            Physics2D.IgnoreCollision(collider2D, colliders[1]);
             yield return new WaitForSeconds(0.5f);
             Physics2D.IgnoreCollision(collider2D, colliders[1], false);
         }
-        
-       
+
+
 
 
     }
@@ -93,7 +116,7 @@ public class PlayerControl : Entity
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        
+
     }
     private void Start()
     {
@@ -102,7 +125,7 @@ public class PlayerControl : Entity
         platformLayer = LayerMask.NameToLayer("Platform");
         collider2D = GetComponent<Collider2D>();
         Key = false;
-        Debug.Log($"Слой игрока - {playerLayer}. Слой платформы - {platformLayer}");
+        //transform.position = new Vector2(PlayerPrefs.GetFloat("xPos"), PlayerPrefs.GetFloat("yPos"));
     }
 
 
@@ -112,15 +135,14 @@ public class PlayerControl : Entity
     }
     private void Update()
     {
-        if (Input.GetButton("Horizontal"))
-        {
-            Run();
-        }
-        if (_facingRight == false && Input.GetAxis("Horizontal") > 0)
+
+        Run();
+
+        if (_facingRight == false && Joystick.Horizontal > 0)
         {
             Flip();
         }
-        if (_facingRight == true && Input.GetAxis("Horizontal") < 0)
+        if (_facingRight == true && Joystick.Horizontal < 0)
         {
             Flip();
         }
@@ -128,16 +150,17 @@ public class PlayerControl : Entity
         {
             _extraJump = JumpValue;
         }
-        if (Input.GetButtonDown("Jump") && _extraJump > 0)
-        {
-           
-            Jump();
-            _extraJump--;
+        //if (Input.GetButtonDown("Jump") && _extraJump > 0)
+        //{
 
-        }else if(Input.GetButtonDown("Jump") && IsGrounded && _extraJump == 0)
-        {
-            Jump();
-        }
+        //    Jump();
+        //    _extraJump--;
+
+        //}
+        //else if (Input.GetButtonDown("Jump") && IsGrounded && _extraJump == 0)
+        //{
+        //    Jump();
+        //}
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("Нажата {S}");
